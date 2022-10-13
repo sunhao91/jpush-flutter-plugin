@@ -26,15 +26,17 @@ class JPush {
   EventHandler? _onReceiveMessage;
   EventHandler? _onReceiveNotificationAuthorization;
   EventHandler? _onNotifyMessageUnShow;
-  void setup({
+  
+  
+  Future<void>  setup({
     String appKey = '',
     bool production = false,
     String channel = '',
     bool debug = false,
-  }) {
+  }) async {
     print(flutter_log + "setup:");
 
-    _channel.invokeMethod('setup', {
+    await _channel.invokeMethod('setup', {
       'appKey': appKey,
       'channel': channel,
       'production': production,
